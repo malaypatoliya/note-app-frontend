@@ -7,17 +7,22 @@ import AddNote from "./Components/AddNote";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
 import NoteState from "./Context/notes/NoteState";
+import Alert from "./Components/Alert";
+import UpdateNote from "./Components/UpdateNote";
 
 function App() {
+
   return (
     <>
       <NoteState>
         <BrowserRouter>
           <Navbar />
+          <Alert msg="malay patoliya" />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/addnote" element={<AddNote />} />
+            <Route path="/updatenote/:id" element={<UpdateNote />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

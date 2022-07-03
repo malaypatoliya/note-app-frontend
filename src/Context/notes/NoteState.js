@@ -33,8 +33,8 @@ const NoteState = (props) => {
             body: JSON.stringify({ title: title, description: description })
         })
         result = await result.json();
-        console.log(result);
-
+        // console.log(result);
+        return result
     }
 
     // ****************************************** Delete a note ******************************************
@@ -49,8 +49,8 @@ const NoteState = (props) => {
             }
         });
         result = await result.json();
-        console.log(result);
-
+        // console.log(result);
+        return result
     }
 
     // ****************************************** Edit a note ******************************************
@@ -66,7 +66,8 @@ const NoteState = (props) => {
             body: JSON.stringify({ title: title, description: description })
         });
         result = await result.json();
-        console.log(result);
+        // console.log(result);
+        return result
     }
 
 

@@ -12,11 +12,7 @@ const AuthState = (props) => {
             body: JSON.stringify({ email: email, password: password })
         })
         result = await result.json();
-        const loginInfo = {
-            success: result.success,
-            authToken: result.authToken
-        }
-        return loginInfo
+        return result
     }
 
     const registerFunc = async (name, email, password) => {
@@ -28,7 +24,7 @@ const AuthState = (props) => {
             body: JSON.stringify({ name: name, email: email, password: password })
         })
         result = await result.json();
-
+        return result
     }
 
     const getUser = async ()=>{

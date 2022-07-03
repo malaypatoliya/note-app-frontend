@@ -5,11 +5,11 @@ const AlertState = (props) => {
 
     const [alert, setAlert] = useState(null);
 
-    const showAlert = (type, msg) => {
+    const showAlert = (type, msg, time) => {
         setAlert({ type: type, msg: msg });
         setTimeout(() => {
             setAlert(null);
-        }, 2000);
+        }, time);
     }
 
     return (

@@ -30,20 +30,19 @@ const Login = () => {
             errMsg = "Password cannot excced more than 10 characters"
         }
         if (errMsg) {
-            showAlert("danger", errMsg);
+            showAlert("danger", errMsg, 3000);
         }
 
         if (errMsg === "") {
-            const loginInfo = await loginFunc(credentials.email, credentials.password);
+            const response = await loginFunc(credentials.email, credentials.password);
 
-            if (loginInfo.success) {
+            if (response.success) {
                 // save auth token & redirect home page
-                localStorage.setItem("token", loginInfo.authToken);
-                showAlert("success", "Login Successfully !!!");
+                localStorage.setItem("token", response.authToken);
+                showAlert("success", "Logged in successfully", 3000);
                 nevigate("/");
             } else {
-                console.log(loginInfo);
-                showAlert("danger", loginInfo.error);
+                showAlert("danger", response.Error, 3000);
                 nevigate("/login");
             }
         }
@@ -52,15 +51,15 @@ const Login = () => {
     return (
         <>
             <div className="container-fluid m-auto mt-5">
-                <form className="formWidth m-auto" onSubmit={loginHandler}>
+                <form className="formWidth m-auto">
                     <h2 className="Heading">Login</h2>
                     <label className="form-label" htmlFor="email">Email ID:</label>
-                    <input className="form-control mb-3" type="email" id="email" name="email" minLength={5} required onChange={getValues} />
+                    <input className="form-control mb-3" type="email" id="email" name="email" required onChange={getValues} />
 
                     <label className="form-label" htmlFor="password">Password:</label>
-                    <input className="form-control mb-3" type="password" id="password" name="password" minLength={4} required onChange={getValues} />
+                    <input className="form-control mb-3" type="password" id="password" name="password" required onChange={getValues} />
 
-                    <button disabled={credentials.email.length < 5 || credentials.password.length < 4} className="btn SKY" type="submit">login</button>
+                    <button disabled={credentials.email.length < 1 || credentials.password.length < 1} className="btn SKY" onClick={loginHandler}>login</button>
                     <div className="mt-1">Don't have an account ? <NavLink to="/register">create a new account</NavLink></div>
                 </form>
             </div>

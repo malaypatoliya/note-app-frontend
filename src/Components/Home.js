@@ -10,10 +10,10 @@ const Home = () => {
     const nevigate = useNavigate();
 
     useEffect(() => {
-        if(localStorage.getItem('token')){
+        if (localStorage.getItem('token')) {
             getAllNotes();
         }
-        else{
+        else {
             nevigate("/login");
         }
     })
@@ -22,14 +22,13 @@ const Home = () => {
         <>
             <div className="container">
                 <NavLink to="/addnote">Add New Note</NavLink>
-                <h2>Your notes</h2>
-                <div className="notes">
+                <div className="notes row">
                     {notes.length > 0 ?
                         notes.map((note) => {
                             return (<NoteItem key={note._id} note={note} />)
                         }) : ""
                     }
-                    {notes.length < 0 ? "No notes to display please add a note" : ""}
+                    {notes.length <= 0 ? "No notes to display please add a note" : ""}
                 </div>
             </div>
         </>

@@ -1,32 +1,45 @@
-import Home from "./Components/Home";
-import About from "./Components/About";
-import Navbar from "./Components/Navbar";
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Navbar from "./Components/Navbar";
+import Home from "./Components/Home";
+import Profile from "./Components/Profile";
 import AddNote from "./Components/AddNote";
+import UpdateNote from "./Components/UpdateNote";
 import Login from "./Components/Login";
 import Register from "./Components/Register";
-import NoteState from "./Context/notes/NoteState";
 import Alert from "./Components/Alert";
-import UpdateNote from "./Components/UpdateNote";
+import PrivateComponent from "./Components/PrivateComponent";
+
+import NoteState from "./Context/notes/NoteState";
+import AlertState from "./Context/alerts/AlertStates";
+import AuthState from "./Context/auth/AuthState";
 
 function App() {
-
   return (
     <>
+
       <NoteState>
-        <BrowserRouter>
-          <Navbar />
-          <Alert msg="malay patoliya" />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/addnote" element={<AddNote />} />
-            <Route path="/updatenote/:id" element={<UpdateNote />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </BrowserRouter>
+        <AlertState>
+          <AuthState>
+            <BrowserRouter>
+              <Navbar />
+              <Alert />
+              <Routes>
+
+                <Route element={<PrivateComponent />}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/addnote" element={<AddNote />} />
+                  <Route path="/updatenote/:id" element={<UpdateNote />} />
+                </Route>
+
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+
+              </Routes>
+            </BrowserRouter>
+          </AuthState>
+        </AlertState>
       </NoteState>
     </>
   );

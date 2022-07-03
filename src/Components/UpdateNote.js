@@ -20,6 +20,7 @@ const UpdateNote = () => {
             title: oneNote[0].title,
             description: oneNote[0].description
         })
+        // eslint-disable-next-line
     }, [])
 
     // getValue from states (override the title & description value)

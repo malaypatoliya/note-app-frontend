@@ -63,18 +63,22 @@ const UpdateNote = () => {
 
     return (
         <>
-            <div className="container-fluid m-auto mt-5">
-                <form className="formWidth m-auto">
-                    <h2 className="Heading">Update a Note</h2>
-                    <label className="form-label" htmlFor="title">Title:</label>
-                    <input className="form-control mb-3" type="text" id="title" name="title" required value={editnote.title} onChange={getValues} />
+            <div className="main">
+                <div className="formClass">
 
-                    <label className="form-label" htmlFor="description">Description:</label>
-                    <textarea className="form-control mb-3" rows="4" cols="50" type="text" id="description" name="description" required value={editnote.description} onChange={getValues} />
+                    <h2 className="title">Update a Note</h2>
+                    <label className="formLabel" htmlFor="title">Note Title:</label>
+                    <input className="formInput" type="email" id="title" name="title" required value={editnote.title} onChange={getValues} />
 
-                    <button className="btn SKY" disabled={editnote.title.length < 1 || editnote.description.length < 1} onClick={Handler}>Update Note</button>
-                    <button className='btn btn-danger mx-3' onClick={close}>close</button>
-                </form>
+                    <label className="formLabel" htmlFor="description">Note Description:</label>
+                    <textarea className="formInput"  rows="5" cols="50" type="text" id="description" name="description" required  value={editnote.description} onChange={getValues} />
+
+                    <div className="btnContainer">
+                        <button disabled={editnote.title.length < 1 || editnote.description.length < 1} className="btn" onClick={Handler}><i className="fas fa-sign-in-alt"></i>Update</button>
+                        <button className='btn' onClick={close}><i class="fas fa-times"></i>close</button>
+                    </div>
+
+                </div>
             </div>
         </>
     )

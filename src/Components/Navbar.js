@@ -12,43 +12,23 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light SKY" >
-                <div className="container-fluid">
-                    <span className="navbar-brand">Notes App</span>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+            <div className="header">
+                <h1 id="logo"><i className="far fa-clipboard"></i> Note App</h1>
+                <div className="navbar">
+                    {
+                        auth ?
+                            <ul>
+                                <NavLink to="/profile" ><i className="fas fa-user-alt"></i>Profile</NavLink>
+                                <p onClick={logoutFunc} ><i className="fas fa-sign-out-alt"></i>Logout</p>
+                            </ul> :
 
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        {
-                            auth ?
-                                <ul className="navbar-nav mw-auto mb-2 mb-lg-0">
-                                    <li className="nav-item">
-                                        <NavLink className="nav-link ls-none" to="/">Home</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <NavLink className="nav-link ls-none" to="/profile" >Profile</NavLink>
-                                    </li>
-                                    <li className="nav-item">
-                                        <p className="nav-link" onClick={logoutFunc} >Logout</p>
-                                    </li>
-                                </ul>
-                                :""
-                                // <ul className="navbar-nav mw-auto mb-2 mb-lg-0">
-                                //     <li className="nav-item">
-                                //         <NavLink className="nav-link ls-none" aria-current="page" to="/login">Login</NavLink>
-                                //     </li>
-                                //     <li className="nav-item">
-                                //         <NavLink className="nav-link ls-none" to="/register">Sign Up</NavLink>
-                                //     </li>
-                                // </ul>
-                        }
-
-
-
-                    </div>
+                            <ul>
+                                <NavLink aria-current="page" to="/login"><i className="fas fa-sign-in-alt"></i>Login</NavLink>
+                                <NavLink className="nav-link ls-none" to="/register"><i className="fas fa-user-plus"></i>Sign Up</NavLink>
+                            </ul>
+                    }
                 </div>
-            </nav>
+            </div>
         </>
     )
 }

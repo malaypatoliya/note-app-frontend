@@ -50,18 +50,21 @@ const Login = () => {
 
     return (
         <>
-            <div className="container-fluid m-auto mt-5">
-                <form className="formWidth m-auto">
-                    <h2 className="Heading">Login</h2>
-                    <label className="form-label" htmlFor="email">Email ID:</label>
-                    <input className="form-control mb-3" type="email" id="email" name="email" required onChange={getValues} />
+            <div className="main">
+                <div className="formClass">
 
-                    <label className="form-label" htmlFor="password">Password:</label>
-                    <input className="form-control mb-3" type="password" id="password" name="password" required onChange={getValues} />
+                    <h2 className="title">Login</h2>
+                    <label className="formLabel" htmlFor="email">Email ID:</label>
+                    <input className="formInput" type="email" id="email" name="email" required onChange={getValues} />
 
-                    <button disabled={credentials.email.length < 1 || credentials.password.length < 1} className="btn SKY" onClick={loginHandler}>login</button>
-                    <div className="mt-1">Don't have an account ? <NavLink to="/register">create a new account</NavLink></div>
-                </form>
+                    <label className="formLabel" htmlFor="password">Password:</label>
+                    <input className="formInput" type="password" id="password" name="password" required onChange={getValues} />
+
+                    <div className="btnContainer">
+                        <button disabled={credentials.email.length < 1 || credentials.password.length < 1} className="btn" onClick={loginHandler}><i className="fas fa-sign-in-alt"></i>Login</button>
+                    </div>
+
+                </div>
             </div>
         </>
     )

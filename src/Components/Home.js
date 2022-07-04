@@ -28,7 +28,7 @@ const Home = () => {
                             return (<NoteItem key={note._id} note={note} />)
                         }) : ""
                     }
-                    {notes.length <= 0 ? "No notes to display please add a note" : ""}
+                    {notes.length === 0 ? "No notes to display please add a note" : ""}
                 </div>
             </div>
         </>

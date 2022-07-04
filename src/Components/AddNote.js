@@ -51,7 +51,7 @@ const AddNote = () => {
 
     return (
         <>
-            <div className="container-fluid m-auto mt-5">
+            {/* <div className="container-fluid m-auto mt-5">
                 <form className="formWidth m-auto">
                     <h2 className="Heading">Add a New Note</h2>
                     <label className="form-label" htmlFor="title">Note Title:</label>
@@ -63,6 +63,24 @@ const AddNote = () => {
                     <button className="btn SKY" disabled={note.title.length < 1 || note.description.length < 1} onClick={Handler}>Add Note</button>
                     <button className='btn btn-danger mx-3' onClick={close}>close</button>
                 </form>
+            </div> */}
+
+            <div className="main">
+                <div className="formClass">
+
+                    <h2 className="title">Add a Note</h2>
+                    <label className="formLabel" htmlFor="title">Note Title:</label>
+                    <input className="formInput" type="email" id="title" name="title" required onChange={getValues} />
+
+                    <label className="formLabel" htmlFor="description">Note Description:</label>
+                    <textarea className="formInput"  rows="5" cols="50" type="text" id="description" name="description" required onChange={getValues} />
+
+                    <div className="btnContainer">
+                        <button disabled={note.title.length < 1 || note.description.length < 1} className="btn" onClick={Handler}><i className="fas fa-sign-in-alt"></i>Add</button>
+                        <button className='btn' onClick={close}><i class="fas fa-times"></i>close</button>
+                    </div>
+
+                </div>
             </div>
         </>
     )

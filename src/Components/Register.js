@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import alertContext from "../Context/alerts/alertContext";
 import authContext from "../Context/auth/authContext";
 

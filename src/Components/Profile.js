@@ -11,6 +11,7 @@ const Profile = () => {
 
     useEffect(() => {
         getDetails();
+        // eslint-disable-next-line
     }, [])
 
     const getDetails = async () => {

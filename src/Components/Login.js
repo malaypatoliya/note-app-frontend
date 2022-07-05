@@ -23,11 +23,11 @@ const Login = () => {
         let errMsg = "";
 
         if (!regex.test(credentials.email)) {
-            errMsg = "This is not a valid email format";
+            errMsg = "Enter valid a valid email format";
         } else if (credentials.password.length < 4) {
             errMsg = "Password must be more than 4 characters"
         } else if (credentials.password.length > 10) {
-            errMsg = "Password cannot excced more than 10 characters"
+            errMsg = "Password must be less than 10 characters"
         }
         if (errMsg) {
             showAlert("danger", errMsg, 3000);
@@ -53,7 +53,7 @@ const Login = () => {
             <div className="main">
                 <div className="formClass">
 
-                    <h2 className="title">Login</h2>
+                    <h2 className="formTitle">Login</h2>
                     <label className="formLabel" htmlFor="email">Email ID:</label>
                     <input className="formInput" type="email" id="email" name="email" required onChange={getValues} />
 

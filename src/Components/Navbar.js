@@ -1,12 +1,17 @@
+import { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import alertContext from "../Context/alerts/alertContext";
 
 const Navbar = () => {
     const nevigate = useNavigate();
+    const context = useContext(alertContext);
+    const {showAlert} = context;
 
     const auth = localStorage.getItem("token")
 
     const logoutFunc = () => {
         localStorage.removeItem("token");
+        showAlert("success", "Logout Successfully !!!", 3000);
         nevigate("/login");
     }
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import noteContext from '../Context/notes/noteContext';
 
@@ -24,8 +25,17 @@ const View = () => {
 
     return (
         <>
-            <p>Title : {note.title}</p>
-            <p>Description: {note.description}</p>
+            <div className="main">
+                <div className="containClass">
+                    <h2 className="detailTitle">Note Title:</h2>
+                    <p className='details'>{note.title}</p>
+                    <h2 className="detailTitle">Note Description:</h2>
+                    <p className='details'>{note.description}</p>
+                    <div className="userContainer">
+                        <NavLink className="btn" to="/" ><i class="fas fa-home"></i>Back to Home</NavLink>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

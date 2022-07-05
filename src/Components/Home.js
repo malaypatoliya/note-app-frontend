@@ -20,16 +20,31 @@ const Home = () => {
 
     return (
         <>
-            <div className="container">
-                <NavLink to="/addnote">Add New Note</NavLink>
-                <div className="notes row">
+            <div className="main btnAddAlign">
+                <NavLink to="/addnote" className="btn"><i className="fas fa-plus"></i>Add New Note</NavLink>
+                {
+                    notes.length > 0 ?
+                        <h2 className="homeTitle">Your Notes</h2> : ""
+                }
+            </div>
+
+            <div className="main">
+                <div className="noteContainer">
                     {notes.length > 0 ?
                         notes.map((note) => {
                             return (<NoteItem key={note._id} note={note} />)
                         }) : ""
                     }
-                    {notes.length === 0 ? "No notes to display please add a note" : ""}
                 </div>
+                {notes.length === 0 ?
+                    <>
+                        <div className="noNote">
+                            <i class="fas fa-book"></i>
+                            <span>Please Add a Note</span>
+                        </div>
+                    </>
+                    : ""}
+
             </div>
         </>
     )

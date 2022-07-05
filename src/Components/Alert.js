@@ -4,18 +4,16 @@ import alertContext from '../Context/alerts/alertContext'
 const Alert = (props) => {
 
     const context = useContext(alertContext);
-    const {alert} = context;
+    const { alert } = context;
 
     return (
         <>
-            <div>
-                {
-                    alert &&
-                    <div className={`alert alert-${alert.type} alert-dismissble fade show`} role="alert">
-                        <storng>{alert.msg}</storng>
-                    </div>
-                }
-            </div>
+            {
+                alert &&
+                <div className={`alert alert-${alert.type}`}>
+                    <strong className="msg">{alert.msg}</strong>
+                </div>
+            }
         </>
     )
 }

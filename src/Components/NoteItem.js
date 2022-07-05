@@ -20,17 +20,13 @@ const NoteItem = (props) => {
 
     return (
         <>
-            <div className="col-md-3">
-                <div className="card my-2">
-                    <div className="card-body">
-                        <h5 className="card-title" style={{ height: "50px", textOverflow: "ellipsis", overflow: "hidden" }}>{title}</h5>
-                        <p className="card-text">{description}</p>
-                        <div className='d-flex'>
-                            <NavLink to={`/updatenote/${_id}`} >update</NavLink>
-                            <p onClick={deleteHandler}>delete</p>
-                            <NavLink to={`/view/${_id}`} >view</NavLink>
-                        </div>
-                    </div>
+            <div className="note">
+                <h5 className="noteTitle">{title}</h5>
+                <p className="noteDesc">{description}</p>
+                <div className="btnNoteContainer">
+                    <p className="btn-note delete" onClick={deleteHandler}><i className="fas fa-trash-alt"></i></p>
+                    <NavLink to={`/updatenote/${_id}`} className="btn-note update"><i className="fas fa-edit"></i></NavLink>
+                    <NavLink to={`/view/${_id}`} className="btn-note view"><i className="fas fa-eye"></i></NavLink>
                 </div>
             </div>
         </>

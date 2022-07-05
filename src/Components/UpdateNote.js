@@ -38,9 +38,9 @@ const UpdateNote = () => {
         e.preventDefault();
         let errMsg = "";
         if (editnote.title.length < 4) {
-            errMsg = "Note title should be more then 4 character"
+            errMsg = "Title must be more than 4 characters"
         } else if (editnote.description.length < 5) {
-            errMsg = "Note description should be more then 5 character"
+            errMsg = "Description  must be more than 5 characters"
         }
         if (errMsg) {
             showAlert("danger", errMsg, 3000);
@@ -66,7 +66,7 @@ const UpdateNote = () => {
             <div className="main">
                 <div className="formClass">
 
-                    <h2 className="title">Update a Note</h2>
+                    <h2 className="formTitle">Update a Note</h2>
                     <label className="formLabel" htmlFor="title">Note Title:</label>
                     <input className="formInput" type="email" id="title" name="title" required value={editnote.title} onChange={getValues} />
 
@@ -75,7 +75,7 @@ const UpdateNote = () => {
 
                     <div className="btnContainer">
                         <button disabled={editnote.title.length < 1 || editnote.description.length < 1} className="btn" onClick={Handler}><i className="fas fa-sign-in-alt"></i>Update</button>
-                        <button className='btn' onClick={close}><i class="fas fa-times"></i>close</button>
+                        <button className='btn btn-red' onClick={close}><i class="fas fa-times"></i>close</button>
                     </div>
 
                 </div>

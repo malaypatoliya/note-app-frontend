@@ -25,13 +25,13 @@ const Register = () => {
         let errMsg = "";
 
         if (!regex.test(credentials.email)) {
-            errMsg = "This is not a valid email format";
+            errMsg = "Enter valid a valid email format";
         } else if (credentials.password.length < 4) {
             errMsg = "Password must be more than 4 characters"
         } else if (credentials.password.length > 10) {
-            errMsg = "Password cannot excced more than 10 characters"
+            errMsg = "Password must be less than 10 characters"
         } else if (credentials.password !== credentials.cpassword) {
-            errMsg = "Password and confirm password should be same"
+            errMsg = "Password and Confirm password must be same"
         }
         if (errMsg) {
             showAlert("danger", errMsg, 3000);
@@ -54,7 +54,7 @@ const Register = () => {
             <div className="main">
                 <div className="formClass">
 
-                    <h2 className="title">Create an Account</h2>
+                    <h2 className="formTitle">Create an Account</h2>
 
                     <label className="formLabel" htmlFor="name">Name:</label>
                     <input className="formInput" type="email" id="name" name="name" required onChange={getValues} />

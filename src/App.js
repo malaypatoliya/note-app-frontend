@@ -16,10 +16,12 @@ import AlertState from "./Context/alerts/AlertStates";
 import AuthState from "./Context/auth/AuthState";
 import Errorpage from "./Components/Errorpage";
 
+import "./css/app.css";
+
 function App() {
+
   return (
     <>
-      
       <NoteState>
         <AlertState>
           <AuthState>
